@@ -15,8 +15,10 @@ browser_lists = [x for x in browser_queries.keys()]
 def getLink(browser_name = "google", search_query = ""):
     search_query = search_query.replace(' ', '+')
     full_link = f'{browser_queries[browser_name]}{search_query}'
-    os.system(f"start chrome {full_link}")
-
+    if os.name == "nt":
+        os.system(f"explorer {full_link}")
+    if os.name == "posix" or os.name == "darwin":
+        os.system(f"open {full_link}")
 def checkBrowser():
     run = True
     while(run):
