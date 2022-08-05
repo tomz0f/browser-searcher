@@ -16,9 +16,9 @@ def getLink(browser_name = "google", search_query = ""):
     search_query = search_query.replace(' ', '+')
     full_link = f'{browser_queries[browser_name]}{search_query}'
     if os.name == "nt":
-        os.system(f"explorer {full_link}")
+        os.system(f"explorer https://{full_link}")
     if os.name == "posix" or os.name == "darwin":
-        os.system(f"open {full_link}")
+        os.system(f"open https://{full_link}")
 def checkBrowser():
     run = True
     while(run):
