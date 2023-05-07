@@ -39,8 +39,9 @@ try:
         search_query = sys.argv[-1]
         browser_choice = checkBrowser()
         getLink(browser_choice, search_query)
-    
-
+except KeyboardInterrupt:
+    print("Program finished...")
+    raise SystemExit(0)
 except IndexError:
     browser_choice = checkBrowser()
     search_query = input("Give a search query for search: ")
